@@ -2,6 +2,8 @@
 
 Followme 前端团队通用 JavaScript 工具库
 
+文档地址：https://fmfe.github.io/fm-utils/
+
 自动化脚本
 ----------
 
