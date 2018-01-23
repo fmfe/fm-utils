@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>email.js - Documentation</title>
+    <title>characters.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">email.js</h1>
+    <h1 class="page-title">characters.js</h1>
     
 
     
@@ -38,28 +38,29 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * @fileOverview 邮箱工具库
- * @module email
+ * @fileOverview 特殊字符工具库
+ * @module characters
  */
 
 /**
- * 检查邮箱是否有效
+ * 检查是否包含特殊字符
  * @author   silenceboychen     https://github.com/silenceboychen
- * @param    {String}   email         - 邮箱地址
+ * @param    {String}   characters         - 字符串
  *
  * @return   {Boolean}
  *
  * @example
  *
- * const { email } = require('@fmfe/fm-utils');
+ * const { characters } = require('@fmfe/fm-utils');
  *
- * const b = email.isValid('123456@qq.com');
+ * const b = characters.hasSpecialCharacters('213qaz@_&amp;');
  *
  * console.log(b); // true
  */
-exports.isValid = function (email) {
-    const rules = /^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+\.){1,63}[a-z0-9]+$/;
-    return rules.test(email);
+exports.hasSpecialCharacters = function (characters) {
+    // 匹配数字，字母和中文，如有特殊字符返回true
+    const rules = /^[\d|A-z|\u4E00-\u9FFF]+$/;
+    return !rules.test(characters);
 };
 </code></pre>
         </article>

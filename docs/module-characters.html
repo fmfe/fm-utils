@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>phone - Documentation</title>
+    <title>characters - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">phone</h1>
+    <h1 class="page-title">characters</h1>
     
 
     
@@ -49,7 +49,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>电话号码工具库</p></div>
+            <div class="description"><p>特殊字符工具库</p></div>
         
 
         
@@ -63,7 +63,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="phone.js.html">phone.js</a>, <a href="phone.js.html#line1">line 1</a>
+        <a href="characters.js.html">characters.js</a>, <a href="characters.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -150,7 +150,7 @@
 
     
 
-    <h4 class="name" id=".isValid"><span class="type-signature">(static) </span>isValid<span class="signature">(phoneNumber, countryCode<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".hasSpecialCharacters"><span class="type-signature">(static) </span>hasSpecialCharacters<span class="signature">(characters)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
 
@@ -162,7 +162,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="phone.js.html">phone.js</a>, <a href="phone.js.html#line27">line 27</a>
+        <a href="characters.js.html">characters.js</a>, <a href="characters.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -186,7 +186,7 @@
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
         <ul>
-            <li>modood     https://github.com/modood</li>
+            <li>silenceboychen     https://github.com/silenceboychen</li>
         </ul>
     </dd>
     
@@ -209,7 +209,7 @@
 
 
 <div class="description">
-    <p>检查电话号码是否有效</p>
+    <p>检查是否包含特殊字符</p>
 </div>
 
 
@@ -222,9 +222,9 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const { phone } = require('@fmfe/fm-utils');
+    <pre class="prettyprint"><code>const { characters } = require('@fmfe/fm-utils');
 
-const b = phone.isValid(13800138000, 86);
+const b = characters.hasSpecialCharacters('213qaz@_&amp;');
 
 console.log(b); // true</code></pre>
 
@@ -244,11 +244,7 @@ console.log(b); // true</code></pre>
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -260,7 +256,7 @@ console.log(b); // true</code></pre>
 
         <tr>
             
-                <td class="name"><code>phoneNumber</code></td>
+                <td class="name"><code>characters</code></td>
             
 
             <td class="type">
@@ -273,62 +269,10 @@ console.log(b); // true</code></pre>
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"><p>电话号码</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>countryCode</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    <code>86</code>
-                
-                </td>
-            
-
-            <td class="description last"><p>地区码（默认：86，表示中国，关于
-                                           <a href="https://zh.wikipedia.org/wiki/国际电话区号列表">国际电话区号列表</a>）</p></td>
+            <td class="description last"><p>字符串</p></td>
         </tr>
 
     
