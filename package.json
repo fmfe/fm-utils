@@ -29,7 +29,7 @@
     }
   },
   "dependencies": {
-    "google-libphonenumber": "^3.0.10",
+    "awesome-phonenumber": "^2.2.4",
     "lodash": "^4.17.4",
     "require-directory": "^2.1.1"
   },

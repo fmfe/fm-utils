@@ -133,6 +133,10 @@ async@~0.2.6:
   version "0.2.10"
   resolved "https://registry.npmjs.org/async/-/async-0.2.10.tgz#b6bbe0b0674b9d719708ca38de8c237cb526c3d1"
 
+awesome-phonenumber@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.npmjs.org/awesome-phonenumber/-/awesome-phonenumber-2.2.4.tgz#1490cdcaabbee21702389d264a760dbc08c5cbf7"
+
 babel-code-frame@^6.22.0:
   version "6.26.0"
   resolved "https://registry.npmjs.org/babel-code-frame/-/babel-code-frame-6.26.0.tgz#63fd43f7dc1e3bb7ce35947db8fe369a3f58c74b"
@@ -926,10 +930,6 @@ globby@^5.0.0:
     object-assign "^4.0.1"
     pify "^2.0.0"
     pinkie-promise "^2.0.0"
-
-google-libphonenumber@^3.0.10:
-  version "3.0.10"
-  resolved "https://registry.npmjs.org/google-libphonenumber/-/google-libphonenumber-3.0.10.tgz#6b6f8f37d6505ac53fbc0fdf3e877ecc57b031fd"
 
 graceful-fs@^4.1.2, graceful-fs@^4.1.9:
   version "4.1.11"
@@ -1878,7 +1878,7 @@ supports-color@1.3.x:
   version "1.3.1"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-1.3.1.tgz#15758df09d8ff3b4acc307539fabe27095e1042d"
 
-supports-color@4.4.0:
+supports-color@4.4.0, supports-color@^4.0.0:
   version "4.4.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-4.4.0.tgz#883f7ddabc165142b2a61427f3352ded195d1a3e"
   dependencies:
@@ -1887,12 +1887,6 @@ supports-color@4.4.0:
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
-
-supports-color@^4.0.0:
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/supports-color/-/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
-  dependencies:
-    has-flag "^2.0.0"
 
 table@^4.0.1:
   version "4.0.2"
