@@ -42,43 +42,50 @@
  * @module phone
  */
 
-const googleLibPhoneNumber = require('google-libphonenumber');
-
-const phoneUtil = googleLibPhoneNumber.PhoneNumberUtil.getInstance();
-const codeMap = googleLibPhoneNumber.metadata.countryCodeToRegionCodeMap;
+const PhoneNumber = require('awesome-phonenumber');
 
 /**
  * 检查电话号码是否有效
  * @author   modood     https://github.com/modood
  * @param    {String}   phoneNumber         - 电话号码
- * @param    {String}   [countryCode=86]    - 地区码（默认：86，表示中国，关于
- *                                            &lt;a href="https://zh.wikipedia.org/wiki/国际电话区号列表">国际电话区号列表&lt;/a>）
+ * @param    {String}   [code=86]    - 地区码，支持数字或英文简写（默认：86 或 CN，表示中国）
+ *                                            关于&lt;a href="https://en.wikipedia.org/wiki/List_of_country_calling_codes">国际电话区号列表&lt;/a>）
  * @return   {Boolean}
  *
  * @example
  *
  * const { phone } = require('@fmfe/fm-utils');
  *
- * const b = phone.isValid(13800138000, 86);
+ * phone.isValid(13800138000, 86);      // true
+ * phone.isValid(8613800138000, 86);    // true
+ * phone.isValid(13800138000, 'CN');    // true
+ * phone.isValid(8613800138000, 'CN');  // true
  *
- * console.log(b); // true
+ * phone.isValid(4322391750, 1);        // true
+ * phone.isValid(14322391750, 1);       // true
+ * phone.isValid(4322391750, 'US');     // true
+ * phone.isValid(14322391750, 'US');    // true
+ *
+ * phone.isValid(13800138000, 1);       // false
+ * phone.isValid(13800138000, 'US');    // false
+ * phone.isValid(14322391750, 86);      // false
+ * phone.isValid(14322391750, 'CN');    // false
  */
-exports.isValid = function (phoneNumber, countryCode) {
-    if (!countryCode) countryCode = '0086';
-    if (!+countryCode) return false;
+exports.isValid = function (phoneNumber, code) {
+    if (code === undefined) code = 86;
 
-    const regions = codeMap[+countryCode];
-    let valid = false;
+    if (!code || (typeof code !== 'string' &amp;&amp; typeof code !== 'number')) return false;
 
-    for (let i = 0; i &lt; regions.length; i++) {
-        const r = regions[i];
-        const n = phoneUtil.parseAndKeepRawInput(phoneNumber.toString(), r.toString());
-        if (phoneUtil.isValidNumber(n)) {
-            valid = true;
-            break;
-        }
+    const countryCode = +code;
+    let regionCode = code;
+
+    if (countryCode) {
+        regionCode = PhoneNumber.getRegionCodeForCountryCode(+countryCode);
     }
-    return valid;
+
+    const p = new PhoneNumber(phoneNumber.toString(), regionCode);
+
+    return p.isValid();
 };
 </code></pre>
         </article>

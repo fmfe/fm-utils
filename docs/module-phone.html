@@ -150,7 +150,7 @@
 
     
 
-    <h4 class="name" id=".isValid"><span class="type-signature">(static) </span>isValid<span class="signature">(phoneNumber, countryCode<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".isValid"><span class="type-signature">(static) </span>isValid<span class="signature">(phoneNumber, code<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
 
@@ -162,7 +162,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="phone.js.html">phone.js</a>, <a href="phone.js.html#line27">line 27</a>
+        <a href="phone.js.html">phone.js</a>, <a href="phone.js.html#line35">line 35</a>
     </li></ul></dd>
     
 
@@ -224,9 +224,20 @@
     
     <pre class="prettyprint"><code>const { phone } = require('@fmfe/fm-utils');
 
-const b = phone.isValid(13800138000, 86);
+phone.isValid(13800138000, 86);      // true
+phone.isValid(8613800138000, 86);    // true
+phone.isValid(13800138000, 'CN');    // true
+phone.isValid(8613800138000, 'CN');  // true
 
-console.log(b); // true</code></pre>
+phone.isValid(4322391750, 1);        // true
+phone.isValid(14322391750, 1);       // true
+phone.isValid(4322391750, 'US');     // true
+phone.isValid(14322391750, 'US');    // true
+
+phone.isValid(13800138000, 1);       // false
+phone.isValid(13800138000, 'US');    // false
+phone.isValid(14322391750, 86);      // false
+phone.isValid(14322391750, 'CN');    // false</code></pre>
 
 
 
@@ -295,7 +306,7 @@ console.log(b); // true</code></pre>
 
         <tr>
             
-                <td class="name"><code>countryCode</code></td>
+                <td class="name"><code>code</code></td>
             
 
             <td class="type">
@@ -327,8 +338,8 @@ console.log(b); // true</code></pre>
                 </td>
             
 
-            <td class="description last"><p>地区码（默认：86，表示中国，关于
-                                           <a href="https://zh.wikipedia.org/wiki/国际电话区号列表">国际电话区号列表</a>）</p></td>
+            <td class="description last"><p>地区码，支持数字或英文简写（默认：86 或 CN，表示中国）
+                                           关于<a href="https://en.wikipedia.org/wiki/List_of_country_calling_codes">国际电话区号列表</a>）</p></td>
         </tr>
 
     
