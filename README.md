@@ -2,6 +2,16 @@
 
 Followme 前端团队通用 JavaScript 工具库
 
+安装
+----
+
+```
+$ yarn add @fmfe/fm-utils
+```
+
+使用
+----
+
 文档地址：https://fmfe.github.io/fm-utils/
 
 自动化脚本
@@ -16,6 +26,24 @@ Followme 前端团队通用 JavaScript 工具库
 | npm ~~run~~ test        | 运行单元测试 |
 | npm run test:coverage   | 查看测试覆盖率报告 |
 | npm run changelog       | 更新 CHANGELOG 文件 |
+| npm run release         | 发布 npm 模块 |
+
+发布 npm 模块
+-------------
+
+递增版本号：
+
+```
+npm version patch   发布补丁
+npm version minor   发布小版本
+npm version major   发布主版本
+```
+
+发布组织模块：
+
+```
+$ npm publish --access public
+```
 
 贡献指南
 --------
