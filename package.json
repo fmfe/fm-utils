@@ -1,6 +1,6 @@
 {
   "name": "@fmfe/fm-utils",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Followme 公共工具库",
   "main": "index.js",
   "scripts": {
