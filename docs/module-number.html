@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>phone - Documentation</title>
+    <title>number - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -27,7 +27,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">phone</h1>
+    <h1 class="page-title">number</h1>
     
 
     
@@ -49,7 +49,7 @@
     <div class="container-overview">
     
         
-            <div class="description"><p>电话号码工具库</p></div>
+            <div class="description"><p>数值处理模块</p></div>
         
 
         
@@ -63,7 +63,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="phone.js.html">phone.js</a>, <a href="phone.js.html#line1">line 1</a>
+        <a href="number.js.html">number.js</a>, <a href="number.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -150,7 +150,7 @@
 
     
 
-    <h4 class="name" id=".isValid"><span class="type-signature">(static) </span>isValid<span class="signature">(phoneNumber, code<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
+    <h4 class="name" id=".sumStrings"><span class="type-signature">(static) </span>sumStrings<span class="signature">(a, b)</span><span class="type-signature"> &rarr; {String}</span></h4>
 
     
 
@@ -162,7 +162,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="phone.js.html">phone.js</a>, <a href="phone.js.html#line35">line 35</a>
+        <a href="number.js.html">number.js</a>, <a href="number.js.html#line25">line 25</a>
     </li></ul></dd>
     
 
@@ -186,7 +186,7 @@
     <dt class="tag-author">Author:</dt>
     <dd class="tag-author">
         <ul>
-            <li>modood     https://github.com/modood</li>
+            <li>...</li>
         </ul>
     </dd>
     
@@ -209,7 +209,7 @@
 
 
 <div class="description">
-    <p>检查电话号码是否有效</p>
+    <p>超大数值相加</p>
 </div>
 
 
@@ -222,22 +222,15 @@
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>const { phone } = require('@fmfe/fm-utils');
+    <pre class="prettyprint"><code>const { number } = require('@fmfe/fm-utils');
 
-phone.isValid(13800138000, 86);      // true
-phone.isValid(8613800138000, 86);    // true
-phone.isValid(13800138000, 'CN');    // true
-phone.isValid(8613800138000, 'CN');  // true
+const n1 = number.sumStrings('42329', '21532');
 
-phone.isValid(4322391750, 1);        // true
-phone.isValid(14322391750, 1);       // true
-phone.isValid(4322391750, 'US');     // true
-phone.isValid(14322391750, 'US');    // true
+console.log(n1); // '63861'
 
-phone.isValid(13800138000, 1);       // false
-phone.isValid(13800138000, 'US');    // false
-phone.isValid(14322391750, 86);      // false
-phone.isValid(14322391750, 'CN');    // false</code></pre>
+const n2 = number.sumStrings('843529812342341234', '236124361425345435');
+
+console.log(n2); // '1079654173767686669'</code></pre>
 
 
 
@@ -255,11 +248,7 @@ phone.isValid(14322391750, 'CN');    // false</code></pre>
         <th>Type</th>
 
         
-        <th>Attributes</th>
-        
 
-        
-        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -271,7 +260,7 @@ phone.isValid(14322391750, 'CN');    // false</code></pre>
 
         <tr>
             
-                <td class="name"><code>phoneNumber</code></td>
+                <td class="name"><code>a</code></td>
             
 
             <td class="type">
@@ -284,29 +273,17 @@ phone.isValid(14322391750, 'CN');    // false</code></pre>
             </td>
 
             
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                </td>
-            
 
-            <td class="description last"><p>电话号码</p></td>
+            <td class="description last"><p>超大数值（字符串形式）</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>code</code></td>
+                <td class="name"><code>b</code></td>
             
 
             <td class="type">
@@ -319,27 +296,10 @@ phone.isValid(14322391750, 'CN');    // false</code></pre>
             </td>
 
             
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
 
             
-                <td class="default">
-                
-                    <code>86</code>
-                
-                </td>
-            
 
-            <td class="description last"><p>地区码，支持数字或英文简写（默认：86 或 CN，表示中国）
-                                           关于<a href="https://en.wikipedia.org/wiki/List_of_country_calling_codes">国际电话区号列表</a>）</p></td>
+            <td class="description last"><p>超大数值（字符串形式）</p></td>
         </tr>
 
     
@@ -370,7 +330,7 @@ phone.isValid(14322391750, 'CN');    // false</code></pre>
     </dt>
     <dd>
         
-<span class="param-type">Boolean</span>
+<span class="param-type">String</span>
 
 
     </dd>
